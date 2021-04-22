@@ -1,0 +1,139 @@
+El área de integración se requiere que se haga un cuestionario de plaza donde se lleve los siguientes campos:
+
+Posición
+Subdirección
+Grupo
+Motivo de la vacante
+Vigencia
+Plaza 
+Gerencia
+Todos estos campos son manuales, al momento de que ingresen ambos documentos (memorándum y cédula SIEP) se debe de capturar esos campos.
+
+En caso de que los documentos no procedan pues se usará de la misma manera que ya te había mencionado atraves de los checkbox.
+
+Me menciona la licenciada que debo ir en estos días a la empresa de nuevo porque debo recoger una base de datos que se usará para guardarla en la base de datos del proyecto, la información que vendrá ahí será la que se usará para mostrarse en dichos campos. 🥺
+
+El area de desarrollo humano al momento que los documentos (memorándum y cédula SIEP) ingresen a este departamento de igual manera se debe capturar los siguientes campos:
+Ficha
+Profesion (manual)
+Situacion_Contractual (combo)
+Resultados_tecnicos (manual)
+Nombre
+Num_Cedula (manual)
+Cpp
+
+
+Después que se halla capturado esto debe haber una carpeta donde se guarde cuatro documentos.
+1. Carta de no inhabilitación
+2. Cédula SIEP
+3. Validación sep
+4. Resultados ev. Tec.
+
+
+Pero si es clausula 3 se debe manejar una carpeta también para guardar documentos PDF. Se debe guardar 4 documentos en esa carpeta....también se requiere que que se le agregué un botón para la cláusula 3 dónde se genere un documento en Word (te lo enviaré por correo) ellos lo van capturar de manera manual, solo que genere ese documento en Word. 
+
+La parte de no procede se sigue manejando igual los checkbox
+El último departamento solo tendrá la parte de recibir los documentos en la bandeja de entrada y validara su contratación y ahí queda todo el proceso
+El reporte de excel ella me dijo que se haga propuesta, que se puede manejar con los campos que se están manejando y que puede llevar tanto los contratados como los que no..
+Con lo de las fechas internas puedes manejarlo dentro del departamento o por fuera a como tú gustes, puedes proponer..pero que si lleve la fecha del memorándum en que entró y salió y el conteo de días en que lapso de tiempo se llevaron para enviarlo
+El botón de busqueda está excelente el que usaste, puedes también proponerlo si ponerlo en cada departamento o a fuera.
+Te enviaré fotos de las hojas impresas donde ella me explico solo nomás para que te des una idea de la estructura del cuestionario
+
+
+
+
+BUSCADOR:
+
+El departamento de integración solo por plaza
+El departamento de desarrollo humano por ficha y nombre
+
+
+
+* bandeja de salida 
+memorandum
+cedula siep
+archivos adicionales 7 máximo
+
+En la bandeja de entrada del Departamento Personal solo se requiere descargar
+-Memorandum
+-Cedula SIEP
+-Archivos Adicionales (7 archivos como máximo)
+
+
+
+Importar las demas tablas 
+
+
+Integracion Regional
+* POSICION
+
+Desarrollo Humano
+* FICHA
+
+ETAPA 2:
+
+Departamento Personal
+
+Fecha de Contratacion
+
+ETAPA 3:
+
+Reportes Excel
+
+de ambos
+contratados
+postulados
+
+
+ERROR
+INTREGRACION REGIONAL
+en campo Motivo de Vacante
+
+
+RECORDATORIO
+
+REPORTE
+
+
+
+
+
+
+
+
+CAMPOS QUE SE RELLENAN AUTOMATICAMENTE
+
+* DESARROLLO HUMANO
+
+Ficha
+Situacion Contractual o RC
+Nombre
+
+* INTEGRACION REGIONAL
+Posicion
+Subdireccion
+Grupo
+Plaza
+Gerencia
+
+* ESPECIFICACIONES DE LOS CAMPOS DE CADA DEPARTAMENTO
+- Departamento de Integracion Regional
+En el campo de "Motivo de la Vacante", se requiere que sea un comboBox con las siguientes opciones:
+prorroga
+vacaciones
+promocion temporal
+ascenso temporal
+comision administrativas
+incapacidad medica
+CL/43 
+maternidad
+permisos economicos
+permisos renciables
+obra determinada
+
+
+
+
+
+
+
