@@ -14,6 +14,11 @@ use App\Models\Contratados;
 
 class gestionStatus extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $getUsersForStatus = dataSearch::where('status_rechazo', '<>', 'true')->paginate(15);

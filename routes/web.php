@@ -7,7 +7,6 @@ use App\Http\Controllers\admin\Usuaria\Usuaria;
 use App\Http\Controllers\admin\IntegracionRegional\IntegracionRegional;
 use App\Http\Controllers\admin\DesarrolloHumano\desarrolloHumanoController;
 use App\Http\Controllers\admin\DepartamentoPersonal\departamentoPersonalController;
-use App\Http\Controllers\Contratados\Contratados;
 use App\Http\Controllers\admin\PDF\downloadPDF;
 use App\Http\Controllers\admin\Rechazados\RechazadosController;
 use App\Http\Controllers\admin\Contratados\ContratadosController;
@@ -33,13 +32,11 @@ Auth::routes();
 
 Route::get('/usuaria', [Usuaria::class, 'home'])->name('area-usuaria');
 
-Route::resource('integracion-regional', IntegracionRegional::class);
+Route::resource('integracion-regional', IntegracionRegional::class)->only(['index', 'store' , 'show']);
 
-Route::resource('desarrollo-humano', desarrolloHumanoController::class);
+Route::resource('desarrollo-humano', desarrolloHumanoController::class)->only(['index', 'store' , 'show']);
 
-Route::resource('departamento-personal', departamentoPersonalController::class);
-
-Route::resource('contratados', Contratados::class);
+Route::resource('departamento-personal', departamentoPersonalController::class)->only(['index', 'store' , 'show']);
 
 Route::get('download-pdf/{id}/{departamento}/{file}', [downloadPDF::class, 'downloadPDF'])->name('download');
 
@@ -47,17 +44,17 @@ Route::get('download-word/{posicion}', [downloadPDF::class, 'getWordDesarrolloHu
 
 Route::get('resultados', [searchController::class, 'getSearchToConsulte'])->name('resultados-search');
 
-Route::resource('rechazados', RechazadosController::class);
+Route::resource('rechazados', RechazadosController::class)->only(['index', 'store', 'show','destroy']);
 
-Route::resource('contratados', ContratadosController::class);
+Route::resource('contratados', ContratadosController::class)->only(['index', 'store', 'show']);
 
 Route::post('/get-trabajador', [trabajadoresController::class, 'getInformacion']);
 
 /* Departamento de Gestion de Status y Notificaciones */
-Route::resource('/consultar-status', gestionStatus::class);
+Route::resource('/consultar-status', gestionStatus::class)->only(['index', 'getInfoForStatus', 'show', 'updateDataForStatus', 'update']);
 
 /* ETAPA 2 */
-Route::resource('proceso-fechas', fechas::class);
+Route::resource('proceso-fechas', fechas::class)->only(['index', 'show']);
 /* ETAPA 3 */
 Route::get('lista-contratados-generar-reporte', [reporteExcelCandidato::class, 'getCandidatoExcel'])->name('list-contratados-excel');
 Route::get('descargar-reporte-excel/{id}', function ($id) {

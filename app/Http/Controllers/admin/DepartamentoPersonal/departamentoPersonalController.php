@@ -30,6 +30,7 @@ class departamentoPersonalController extends Controller
         $this->cedula_siep_documento = '';
     }
 
+    
     public function index()
     {
         $departamentoPersonal = dataSearch::where('validacion_departamento_personal', 'false')->where('id_departamento_personal', '<>', null)->where('status_rechazo', '<>', 'true')->paginate(15);
