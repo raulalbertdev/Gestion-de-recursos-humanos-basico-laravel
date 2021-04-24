@@ -49,7 +49,7 @@
                             'Desarrollo Humano',
                             {{ $dataSearchResult[0]->id }},
                             '/get-data-search',
-                            'modalForStatusWatchOrEdit'
+                            'modalForStatusWatchOrEdit{{ $dataSearchResult[0]->id_desarrollo_humano }}'
                         )">Ver Status...</button>
 
                         <x-modal-for-status :idDataDepartament="$dataSearchResult[0]->id_desarrollo_humano" routeRedirect="'/post-data-status'" departamento="'Desarrollo Humano'"></x-modal-for-status>
@@ -108,7 +108,7 @@
                         </div>
                         <div class="form-group">
                             <label for="campo_cpp">SIPAP: </label>
-                            <input type="text" class="form-control" id="campo_cpp" name="cpp" placeholder="CPP ..." value="{{ old('cpp') }}">
+                            <input type="text" class="form-control" id="campo_cpp" name="cpp" placeholder="SIPAP ..." value="{{ old('cpp') }}">
                             {!!  $errors->first('cpp' , '<small class="text-danger font-weight-bold">:message</small>') !!}
                         </div>
                         

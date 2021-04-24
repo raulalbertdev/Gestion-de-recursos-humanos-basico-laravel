@@ -29,16 +29,16 @@
 
 
   <div class="container my-5" title="Seccion para el Informe del Status del Trabajador">
-    <button class="btn btn-block" style="background-color: #29B6F6;" id="btnWatchStatus" data-element="WatchStatus" data-id-search="{{ $dataSearchResult[0]->id }}" data-id-departament="{{ $dataSearchResult[0]->id_desarrollo_humano }}" onclick="executeActivitiesDinamicForStatus(
-                            {{$dataSearchResult[0]->id_desarrollo_humano}},
+    <button class="btn btn-block" style="background-color: #29B6F6;" id="btnWatchStatus" data-element="WatchStatus" data-id-search="{{ $dataSearchResult[0]->id }}" data-id-departament="{{ $dataSearchResult[0]->id_departamento_personal }}" onclick="executeActivitiesDinamicForStatus(
+                            {{$dataSearchResult[0]->id_departamento_personal}},
                             '/get-data-departamento',
                             'Departamento Personal',
                             {{ $dataSearchResult[0]->id }},
                             '/get-data-search',
-                            'modalForStatusWatchOrEdit'
+                            'modalForStatusWatchOrEdit{{ $dataSearchResult[0]->id_departamento_personal }}'
                         )">Ver Status...</button>
 
-                        <x-modal-for-status :idDataDepartament="$dataSearchResult[0]->id_desarrollo_humano" routeRedirect="'/post-data-status'" departamento="'Departamento Personal'"></x-modal-for-status>
+                        <x-modal-for-status :idDataDepartament="$dataSearchResult[0]->id_departamento_personal" routeRedirect="'/post-data-status'" departamento="'Departamento Personal'"></x-modal-for-status>
   </div>
 
 

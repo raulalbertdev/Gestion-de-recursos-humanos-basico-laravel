@@ -93,7 +93,7 @@
                             'Integracion Regional',
                             {{ $item->id }},
                             '/get-data-search',
-                            'modalForStatusWatchOrEdit'
+                            'modalForStatusWatchOrEdit{{ $item->id_integracion }}'
                         )">Ver Status...</button>
                     </div>
 
@@ -123,6 +123,9 @@
     e.preventDefault();
     executeActivitieUpdateForStatus();
 }); */
+
+
+
 </script>
 
 @stop

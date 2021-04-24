@@ -130,7 +130,7 @@ class desarrolloHumanoController extends Controller
                 'Razon' => 'Sin del Directorio Talento'
             ],
             [
-                'Name' => 'pp',
+                'Name' => 'ppp',
                 'Texto' => 'PPP',
                 'Razon' => 'Sin PPP'
             ],

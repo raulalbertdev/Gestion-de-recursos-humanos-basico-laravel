@@ -97,7 +97,7 @@
                             'Departamento Personal',
                             {{ $item->id }},
                             '/get-data-search',
-                            'modalForStatusWatchOrEdit'
+                            'modalForStatusWatchOrEdit{{ $item->id_departamento_personal }}'
                         )">Ver Status...</button>
                     </div>
 

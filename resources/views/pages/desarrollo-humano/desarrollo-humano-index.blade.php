@@ -90,7 +90,7 @@
                             'Desarrollo Humano',
                             {{ $item->id }},
                             '/get-data-search',
-                            'modalForStatusWatchOrEdit'
+                            'modalForStatusWatchOrEdit{{ $item->id_desarrollo_humano }}'
                         )">Ver Status...</button>
                     </div>
 

@@ -1,4 +1,4 @@
-function consultar_data_departamento( _id ,  ruta, departamento ){
+function consultar_data_departamento( _id,  ruta, departamento ){
 
         $.ajax({
             url : ruta,
@@ -12,24 +12,16 @@ function consultar_data_departamento( _id ,  ruta, departamento ){
           }).done(function(response){
 
                if(response.dataResultSearchDepartament.status == null){
-                  $('#box_status').html(
-                  /* html */`<label for='campo_status'>Status: </label>
-                  <input type="text" class="form-control" id="campo_status" required maxLength="255" disabled value="No hay Informacion Definida">`
-              );
+                $('#campo_status' + _id ).val('No hay Informacion Disponible');
               }else{
-                     $('#box_status').html(
-                  /* html */`<label for='campo_status'>Status: </label>
-                  <input type="text" class="form-control" id="campo_status" value="${ response.dataResultSearchDepartament.status }" required max="255" disabled>`
-              );
-              }
+                $('#campo_status' + _id ).val(response.dataResultSearchDepartament.status);
+            }
 
-              
-
-          })
+        })
 }
 
 
-function consultarDataSearch(_id_dataSearch, ruta){
+function consultarDataSearch(_id_dataSearch, _id_departamento,  ruta){
         $.ajax({
             url : ruta,
             dataType: "json",
@@ -39,19 +31,19 @@ function consultarDataSearch(_id_dataSearch, ruta){
               _token : $('input[name="_token"]').val()
             }
           }).done(function(response){
-              $('#posicion_data').html(
+              $('#posicion_data' + _id_departamento).html(
                   /* html */`
                   <p class="text-center">Posicion: <strong>${ response.dataSearch.posicion } </strong> </p>`
               );
-              $('#ficha_data').html(
+              $('#ficha_data' + _id_departamento).html(
                   /* html */`
                   <p class="text-center">Ficha: <strong>${ response.dataSearch.ficha } </strong> </p>`
               );
-              $('#nombre_data').html(
+              $('#nombre_data' + _id_departamento).html(
                   /* html */`
                   <p class="text-center">Nombre: <strong>${ response.dataSearch.nombre } </strong> </p>`
               );
-              $('#regimen_contractual_data').html(
+              $('#regimen_contractual_data' + _id_departamento).html(
                   /* html */`
                   <p class="text-center">Regimen_contractual: <strong>${ response.dataSearch.regimen_contractual } </strong> </p>`
               )
@@ -62,7 +54,7 @@ function consultarDataSearch(_id_dataSearch, ruta){
 function executeActivitiesDinamicForStatus( _id , rutaDepartament , departamento , _id_dataSearch , rutaDataSearch, IDModal ){
 
     $('#' + IDModal).modal('show');
-    $('#modeForStatus').html('Visualización');
+    $('#modeForStatus' + _id).html('Visualización');
     consultar_data_departamento(
         _id,
         rutaDepartament,
@@ -70,6 +62,7 @@ function executeActivitiesDinamicForStatus( _id , rutaDepartament , departamento
     );
     consultarDataSearch(
         _id_dataSearch,
+        _id,/* id del departamento */
         rutaDataSearch
     );
 
@@ -84,7 +77,7 @@ function executeActivitieUpdateForStatus( _id_for_departament , ruta , departame
         dataType : 'json',
         data:{
             id : _id_for_departament,
-            campo_status : $('#campo_status').val(),
+            campo_status : $('#campo_status' + _id_for_departament).val(),
             departamento : departamento,
             _token : $('input[name="_token"]').val()
         }
@@ -96,11 +89,11 @@ function executeActivitieUpdateForStatus( _id_for_departament , ruta , departame
 }
 
 function ActivateInputsForEdit(/* campos a deshabilitar */ elements , dataIDUpdate, ruta , departamento){
-    $('#btn_editar_modal_for_status').remove();
-    $('#sectionEditSaveChanges').html(
-        /* html */`<button type="button" class="btn btn-success" id="btn_save_changes_modal_for_status" onclick="executeActivitieUpdateForStatus('${dataIDUpdate}', '${ruta}' , '${departamento}' ) , '#modalForStatusWatchOrEdit' ">Guardar Cambios</button>`
+    $('#btn_editar_modal_for_status' + dataIDUpdate).remove();
+    $('#sectionEditSaveChanges' + dataIDUpdate).html(
+        /* html */`<button type="button" class="btn btn-success" id="btn_save_changes_modal_for_status${dataIDUpdate}" onclick="executeActivitieUpdateForStatus('${dataIDUpdate}', '${ruta}' , '${departamento}' ) , '#modalForStatusWatchOrEdit${dataIDUpdate}' ">Guardar Cambios</button>`
     );
-    $('#modeForStatus').html('Edición');
+    $('#modeForStatus'+ dataIDUpdate).html('Edición');
     elements.forEach(item => {
         $( item ).removeAttr('disabled');
     });
@@ -108,7 +101,7 @@ function ActivateInputsForEdit(/* campos a deshabilitar */ elements , dataIDUpda
 
 function getIDForDepartamentConsult(_id_data_departament, ruta, departamento){
     ActivateInputsForEdit([
-        '#campo_status',
+        '#campo_status' + _id_data_departament,
     ] , _id_data_departament , ruta , departamento);
 }
 
@@ -119,5 +112,3 @@ document.getElementById('closeModalForStatus').addEventListener('click',function
 document.getElementById('closeModalForStatusIcon').addEventListener('click',function(){
     location.reload()
 });
-
-

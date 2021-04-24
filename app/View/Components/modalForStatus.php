@@ -6,7 +6,6 @@ use Illuminate\View\Component;
 
 class modalForStatus extends Component
 {
-
     public $idDataForDepartament;
     public $ruta;
     public $departamento;

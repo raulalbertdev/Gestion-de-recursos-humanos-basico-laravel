@@ -44,7 +44,7 @@
                             'Integracion Regional',
                             {{ $dataSearchResults[0]->id }},
                             '/get-data-search',
-                            'modalForStatusWatchOrEdit'
+                            'modalForStatusWatchOrEdit{{ $dataSearchResults[0]->id_integracion }}'
                         )">Ver Status...</button>
 
                         <x-modal-for-status :idDataDepartament="$dataSearchResults[0]->id_integracion" routeRedirect="'/post-data-status'" departamento="'Integracion Regional'"></x-modal-for-status>
